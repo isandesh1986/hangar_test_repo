@@ -1,0 +1,56 @@
+= Setting up a Test Pipeline on Azure DevOps
+
+In this section we will create a Azure Devops Test pipeline for testing project test cases.
+
+:url-service-cnnct: https://docs.microsoft.com/en-us/azure/devops/boards/github/connect-to-github?view=azure-devops#connect-azure-devops-services-to-github-enterprise-server
+
+:url-az-CLI: https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest
+
+:url-pat-token: https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=preview-page#create-a-pat
+
+== *Prerequisites:*
+
+. Install the {url-az-CLI}[Azure CLI].
+. Create an Azure DevOps {url-pat-token}[Personal Access Token (PAT)].
+. Create an {url-service-cnnct}[Service Connection] for Github repository in Azure Devops project.
+
+== *Creating Azure Test Pipeline using provided script*
+
+The script located at `/scripts/pipelines/azure-devops/test_pipeline_generator.sh` will automatically create a test pipeline based on a YAML template.
+
+While creation of the pipeline new `feature/build-pipeline` branch will be created and the yaml files will be push to this branch. 
+
+```
+Note: Pull the latest changes with "git pull", The Script will commit and push the Azure Test Pipeline yaml templates into your repository.
+```
+== Usage
+
+```
+./test_pipeline_generator.sh -n <pipeline-name> -l <language or framework> -d <project local path> -r <repository-path> -b <branch> -t <Pat-token>
+```
+
+== Flags
+
+```
+-n    [Required] Name of the test pipeline.
+-l    [Required] Language or framework of the project.
+-d    [Required] Local directory of your project (the path should always be using '/' and not '\').
+-r    [Required] Repository of the code.
+-t    [Required] PAT token to login Azure DevOps.
+-b    [Required] Branch of the repository.
+
+```
+=== Example
+
+==== Quarkus project
+
+```
+./test_pipeline_generator.sh -n projectfortesting -l quarkus -d  C:/Users/$USERNAME/Desktop/quarkus-project -r https://github.com/$USERNAME/quarkus-project.git -b master -t Pat-token 
+```
+   
+
+
+
+
+
+
