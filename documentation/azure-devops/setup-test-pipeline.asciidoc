@@ -17,12 +17,18 @@ In this section we will create a Azure Devops Test pipeline for testing project 
 == *Creating Azure Test Pipeline using provided script*
 
 The script located at `/scripts/pipelines/azure-devops/test_pipeline_generator.sh` will automatically create a test pipeline based on a YAML template.
+[loweralpha]
+. While creation of the pipeline new `feature/build-pipeline` branch will be created and the yaml files will be push to this branch. 
+. Pull the latest changes with `git pull`, The Script will commit and push the Azure Test Pipeline yaml templates into your repository.
 
-While creation of the pipeline new `feature/build-pipeline` branch will be created and the yaml files will be push to this branch. 
 
 ```
-Note: Pull the latest changes with "git pull", The Script will commit and push the Azure Test Pipeline yaml templates into your repository.
+*Build Pipeline Logs:*
+
+If a certain Build is failed, check the logs for that specific build. they are two ways to check logs.
+View failed build logs in build pipeline summary, in more actions you can download complete logs which include additional diagnostic information.
 ```
+
 == Usage
 
 ```
