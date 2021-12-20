@@ -23,7 +23,7 @@ The script located at `/scripts/pipelines/azure-devops/test_pipeline_generator.s
 
 
 ```
-Note: If a test is failed, check the logs for the specific run pipeline, View failed test logs in build pipeline summary, in more actions you can download complete logs which include additional diagnostic information.
+Note: If a test is failed, check the logs for the specific run pipeline summary, in more actions you can download complete logs which include additional diagnostic information.
 ```
 
 == Usage
